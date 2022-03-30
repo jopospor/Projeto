@@ -71,6 +71,19 @@ Dado('que o usuário possui chave e token da API do Trello') do
     expect(@response.body).to eq('invalid value for idList')
   end
 
+  Quando('realizar uma requisição para excluir cartão sem passar o identificador de uma das lista') do
+    @updating_params = {
+        name: 'new name',
+        desc: 'new desc',
+      }
+    
+      @response = HTTParty.delete("#{@base_url}/#{@card_id}?#{@auth}")
+  end
+  
+  Então('espera mensagem de erro relacionada a tentativa de exclusão') do
+    expect(@response.code).to eq(404)
+  end
+
   Quando('realizar uma requisição para excluir cartão') do
     @updating_params = {
         name: 'new name',

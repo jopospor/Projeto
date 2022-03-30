@@ -24,3 +24,6 @@ Cenário: Validações API do Trello
 
   Quando realizar uma requisição para excluir cartão 
   Então o cartão será excluído
+
+  Quando realizar uma requisição para excluir cartão sem passar o identificador de uma das lista
+  Então espera mensagem de erro relacionada a tentativa de exclusão
