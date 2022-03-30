@@ -41,7 +41,7 @@ O usuário deve solicitar um token e uma chave para a API do Trello. Os testes r
 ## Cenários: Exclusão de cards
 
 ### **Cenário 1:** Excluir Cartão
-**Dado** o usuário possui cartões criados em listas do quadro **Quando** realizar uma requisição para excluir cartão Então o cartão será excluído
+**Dado** o usuário possui cartões criados em listas do quadro **Quando** realizar uma requisição para excluir cartão **Então** o cartão será excluído
 
 ### **Cenário 2:** Excluir Cartão sem possuir cartões criados
 **Dado** o usuário não  possui cartões criados em listas do quadro **Quando** realizar uma requisição para excluir cartão **Então** espera mensagem de erro
