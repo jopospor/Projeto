@@ -13,11 +13,14 @@ Cenário: Validações API do Trello
   Quando realizar uma requisição para criar cartão
   Então o cartão deve ser criado
 
+  Quando realizar uma requisição para criar cartão sem passar o identificador de uma das lista
+  Então espera mensagem de erro
+
   Quando realizar uma requisição para editar cartão 
-  Então a edição do cartão será efetuada  
+  Então a edição do cartão será efetuada 
+
+  Quando realizar uma requisição para editar cartão sem passar o identificador de uma das lista
+  Então espera mensagem de erro relacionada a tentativa 
 
   Quando realizar uma requisição para excluir cartão 
   Então o cartão será excluído
-
-  Quando realizar uma requisição para criar cartão sem passar o identificador de uma das lista
-  Então espera mensagem de erro

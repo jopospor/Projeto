@@ -29,6 +29,19 @@ Dado('que o usuário possui chave e token da API do Trello') do
     expect(@response['name']).to eq(@params[:name])
     expect(@response['desc']).to eq(@params[:desc])
   end
+
+  Quando('realizar uma requisição para criar cartão sem passar o identificador de uma das lista') do
+    @params = {
+        name: 'hello',
+        desc: 'this is the description'
+      }
+    
+      @response = HTTParty.post("#{@base_url}?#{@auth}", { body: @params })
+  end
+  
+  Então('espera mensagem de erro') do
+    expect(@response.body).to eq('invalid value for idList')
+  end
   
   Quando('realizar uma requisição para editar cartão') do
     @updating_params = {
@@ -45,6 +58,19 @@ Dado('que o usuário possui chave e token da API do Trello') do
     expect(@response['desc']).to eq(@updating_params[:desc])
   end
   
+  Quando('realizar uma requisição para editar cartão sem passar o identificador de uma das lista') do
+    @params = {
+        name: 'hello 1',
+        desc: 'this is the description 1'
+      }
+    
+      @response = HTTParty.post("#{@base_url}?#{@auth}", { body: @params })
+  end
+  
+  Então('espera mensagem de erro relacionada a tentativa') do
+    expect(@response.body).to eq('invalid value for idList')
+  end
+
   Quando('realizar uma requisição para excluir cartão') do
     @updating_params = {
         name: 'new name',
@@ -57,17 +83,4 @@ Dado('que o usuário possui chave e token da API do Trello') do
   
   Então('o cartão será excluído') do
     expect(@response.code).to eq(200)
-  end
-  
-  Quando('realizar uma requisição para criar cartão sem passar o identificador de uma das lista') do
-    @params = {
-        name: 'hello',
-        desc: 'this is the description'
-      }
-    
-      @response = HTTParty.post("#{@base_url}?#{@auth}", { body: @params })
-  end
-  
-  Então('espera mensagem de erro') do
-    expect(@response.body).to eq('invalid value for idList')
   end
