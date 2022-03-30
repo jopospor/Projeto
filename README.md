@@ -18,7 +18,7 @@ Os testes resumiram-se aos fluxos básicos e de exceções relacionados aos card
 
 | Arquivos | Descrição |
 | ------ | ------ |
-| Cenários | https://github.com/jopospor/Projeto/blob/master/cenários.mb|
+| Cenários | https://github.com/jopospor/Projeto/blob/master/cenários.md|
 
 ## Bundler
 Instale o Bundler:
